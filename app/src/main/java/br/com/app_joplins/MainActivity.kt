@@ -15,8 +15,8 @@ import android.widget.*
 import kotlinx.android.synthetic.main.login.*
 
 class MainActivity : AppCompatActivity() {
-    val campoUsuario = "aluno"
-    val campoSenha = "impacta"
+    val CampoUsuario = "aluno"
+    val CampoSenha = "impacta"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
         val valorUsuario = campoUsuario.text.toString()
         val valorSenha = campoSenha.text.toString()
 
-        if (valorUsuario.equals(campoUsuario) && valorSenha.equals(campoSenha)) {
-            val intent = Intent(this, MainActivity::class.java)
+        if (valorUsuario.equals(CampoUsuario) && valorSenha.equals(CampoSenha)) {
+            val intent = Intent(this, TelaInicialActivity::class.java)
             Toast.makeText(this, "logado", Toast.LENGTH_SHORT).show()
             startActivity(intent)
         } else {
