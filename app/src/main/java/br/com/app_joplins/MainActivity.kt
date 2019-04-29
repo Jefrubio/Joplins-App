@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         btnlogin.setOnClickListener { onClickLogin() }
     }
 
+
     fun onClickLogin() {
         val campoUsuario = findViewById<EditText>(R.id.editUsuario)
         val campoSenha = findViewById<EditText>(R.id.editSenha)
