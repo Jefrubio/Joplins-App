@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@drawable/imagem_login"
+              android:alpha="0.75">
+
+    <TextView
+            android:id="@+id/texto_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mensagem_login" android:textSize="18sp" android:textStyle="bold"
+            android:textAlignment="center"/>
+
+    <TextView
+            android:id="@+id/texto_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Usuário" android:textSize="18sp"/>
+
+    <EditText
+            android:id="@+id/editUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" android:singleLine="true" android:selectAllOnFocus="false"/>
+
+    <TextView
+            android:id="@+id/texto_senha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Senha" android:textSize="18sp"/>
+
+    <EditText
+            android:id="@+id/editSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword" android:singleLine="true" android:selectAllOnFocus="true"/>
+
+    <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+        <Button
+                android:id="@+id/btnlogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:stateListAnimator="@null"/>
+
+        <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+</LinearLayout>
+
