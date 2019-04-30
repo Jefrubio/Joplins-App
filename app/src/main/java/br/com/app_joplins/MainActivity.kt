@@ -9,35 +9,38 @@ import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.view.View
 import android.widget.*
 import android.widget.Toast
+import android.util.Log
 import kotlinx.android.synthetic.main.login.*
 import android.webkit.WebView
 import android.widget.*
 import kotlinx.android.synthetic.main.login.*
 
-class MainActivity : AppCompatActivity() {
-    val CampoUsuario = "aluno"
-    val CampoSenha = "impacta"
+class MainActivity : DebugActivity() {
+    val USERNAME = "aluno"
+    val PASSWORD = "impacta"
 
+    private val context: Context get() = this
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
-        //App_Joplins.setImageResource(R.drawable.App_Joplins)
+        //app_joplins.setImageResource(R.drawable.App_Joplins)
 
         btnlogin.setOnClickListener { onClickLogin() }
     }
 
 
     fun onClickLogin() {
-        val campoUsuario = findViewById<EditText>(R.id.editUsuario)
-        val campoSenha = findViewById<EditText>(R.id.editSenha)
-        val valorUsuario = campoUsuario.text.toString()
-        val valorSenha = campoSenha.text.toString()
+        var campousuario = findViewById<TextView>(R.id.editUsuario)
+        var camposenha = findViewById<TextView>(R.id.editSenha)
+        val valorUsuario = campousuario.text.toString()
+        val valorSenha = camposenha.text.toString()
 
-        if (valorUsuario.equals(CampoUsuario) && valorSenha.equals(CampoSenha)) {
-            val intent = Intent(this, TelaInicialActivity::class.java)
+        if (valorUsuario.equals(USERNAME) && valorSenha.equals(PASSWORD)) {
+            val intent = Intent(context,TelaInicialActivity::class.java)
             Toast.makeText(this, "logado", Toast.LENGTH_SHORT).show()
             startActivity(intent)
+
         } else {
             // mensagem de erro
             Toast.makeText(

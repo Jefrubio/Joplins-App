@@ -21,6 +21,8 @@
         <activity android:name=".DebugActivity" />
         <activity android:name=".TelaInicialActivity"
                   android:theme="@style/AppTheme.Toolbar"></activity>
+        <activity android:name=".CursoActivity"></activity>
+
     </application>
 
 </manifest>

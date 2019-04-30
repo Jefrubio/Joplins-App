@@ -8,6 +8,7 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.*
 import android.view.Menu
 import android.view.MenuItem
@@ -17,6 +18,7 @@ import android.widget.TextView
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_tela_curso.*
 import kotlinx.android.synthetic.main.activity_tela_inicial.*
+import kotlinx.android.synthetic.main.toolbar.*
 
 class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -27,6 +29,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_inicial)
+        setSupportActionBar(toolbar)
 
         val args = intent.extras
 
