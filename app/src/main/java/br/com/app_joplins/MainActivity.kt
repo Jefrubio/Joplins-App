@@ -24,7 +24,6 @@ class MainActivity : DebugActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
 
-        //app_joplins.setImageResource(R.drawable.App_Joplins)
 
         btnlogin.setOnClickListener { onClickLogin() }
     }

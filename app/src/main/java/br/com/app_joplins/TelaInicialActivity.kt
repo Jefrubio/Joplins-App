@@ -29,11 +29,11 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_inicial)
-        setSupportActionBar(toolbar)
+        //setSupportActionBar(toolbar)
 
-        val args = intent.extras
+        val args:Bundle? = intent.extras
 
-        val nome = args.getString("nome")
+        val nome = args?.getString("nome")
 
 
         val numero = intent.getIntExtra("nome",0)
