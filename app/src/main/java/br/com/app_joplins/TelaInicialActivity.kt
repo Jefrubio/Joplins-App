@@ -25,18 +25,21 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
     private val context: Context get() = this
     private var curso = listOf<Curso>()
     var recyclerCurso: RecyclerView? = null
+    private var REQUEST_CADASTRO = 1
+    private var REQUEST_REMOVE = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_inicial)
-        //setSupportActionBar(toolbar)
+        setSupportActionBar(toolbar)
 
-        val args:Bundle? = intent.extras
+        val args: Bundle? = intent.extras
+
 
         val nome = args?.getString("nome")
 
 
-        val numero = intent.getIntExtra("nome",0)
+        val numero = intent.getIntExtra("nome", 0)
 
         Toast.makeText(context, "Parâmetro: $nome", Toast.LENGTH_LONG).show()
         Toast.makeText(context, "Numero: $numero", Toast.LENGTH_LONG).show()
@@ -45,10 +48,10 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         mensagem.text = "Bem vindo $nome"
 
         val botaoSair = findViewById<Button>(R.id.botaoSair)
-        botaoSair.setOnClickListener {cliqueSair()}
+        botaoSair.setOnClickListener { cliqueSair() }
 
-        val botaoCursos = findViewById<Button>(R.id.botaoCursos)
-        botaoCursos.setOnClickListener {cliquecursos()}
+        //val botaoCursos = findViewById<Button>(R.id.botaoCursos)
+        //botaoCursos.setOnClickListener {cliquecursos()}
 
 
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
@@ -56,7 +59,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
 
 
-        supportActionBar?.title = "Disciplinas"
+        supportActionBar?.title = "Cursos"
 
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -65,9 +68,9 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         configuraMenuLateral()
 
         recyclerCurso = recyclerCurso
-        recyclerCurso?.layoutManager = LinearLayoutManager (context)
+        recyclerCurso?.layoutManager = LinearLayoutManager(context)
         recyclerCurso?.itemAnimator = DefaultItemAnimator()
-        recyclerCurso?.setHasFixedSize (true)
+        recyclerCurso?.setHasFixedSize(true)
 
 
     }
@@ -77,16 +80,45 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         taskCursos()
     }
 
-    fun taskCursos(){
-        curso = CursoService.getCurso(context)
-        recyclerCurso?.adapter = CursoAdapter(curso)
-        {onClickCursos(it)}
+    fun taskCursos() {
+
+        // Criar a Thread
+        Thread {
+            // Código para procurar as disciplinas
+            // que será executado em segundo plano / Thread separada
+            this.curso = CursoService.getCursos (context)
+            runOnUiThread {
+                // Código para atualizar a UI com a lista de disciplinas
+                recyclerCurso?.adapter = CursoAdapter(this.curso) { onClickCursos(it) }
+                // enviar notificação
+                enviaNotificacao(this.curso.get(0))
+
+            }
+        }.start()
 
     }
 
-    fun onClickCursos(curso: Curso){
-        Toast.makeText(context, "${curso.nome}",
-            Toast.LENGTH_SHORT).show()
+    fun enviaNotificacao(curso: Curso) {
+        // Intent para abrir tela quando clicar na notificação
+        val intent = Intent(this, CursoActivity::class.java)
+        // parâmetros extras
+        intent.putExtra("disciplina", curso)
+        // Disparar notificação
+        NotificationUtil.create(this, 1, intent, "LMSApp", "Você tem nova atividade na ${curso.nome}")
+    }
+    fun onClickCursos(curso: Curso) {
+        Toast.makeText(
+            context, "${curso.nome}",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+
+    fun onClickcliquecursos(curso: Curso) {
+        Toast.makeText(context, "Clicou nos cursos ${curso.nome}", Toast.LENGTH_SHORT).show()
+        val intent = Intent(context, CursoActivity::class.java)
+        intent.putExtra("curso", curso)
+        startActivityForResult(intent, REQUEST_REMOVE)
+
     }
 
     private fun configuraMenuLateral() {
@@ -94,7 +126,13 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         var menuLateral = findViewById<DrawerLayout>(R.id.layourMenuLateral)
 
 
-        var toogle = ActionBarDrawerToggle(this, menuLateral, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
+        var toogle = ActionBarDrawerToggle(
+            this,
+            menuLateral,
+            toolbar,
+            R.string.navigation_drawer_open,
+            R.string.navigation_drawer_close
+        )
 
         menuLateral.addDrawerListener(toogle)
         toogle.syncState()
@@ -134,22 +172,18 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
     fun cliqueSair() {
         val returnIntent = Intent();
-        returnIntent.putExtra("result","Saída do BrewerApp");
-        setResult(Activity.RESULT_OK,returnIntent);
+        returnIntent.putExtra("result", "Saída do BrewerApp");
+        setResult(Activity.RESULT_OK, returnIntent);
         finish();
     }
 
-    fun cliquecursos(){
-        val returnIntent = Intent();
-        val it = Intent(this,Curso::class.java);
-        startActivity(it);
-    }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
         menuInflater.inflate(R.menu.menu_main, menu)
 
-        (menu?.findItem(R.id.action_buscar)?.actionView as SearchView).setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        (menu?.findItem(R.id.action_buscar)?.actionView as SearchView).setOnQueryTextListener(object :
+            SearchView.OnQueryTextListener {
 
             override fun onQueryTextChange(newText: String): Boolean {
 
@@ -170,20 +204,25 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         val id = item?.itemId
 
 
-        if  (id == R.id.action_buscar) {
+        if (id == R.id.action_buscar) {
             Toast.makeText(context, "Botão de buscar", Toast.LENGTH_LONG).show()
         } else if (id == R.id.action_atualizar) {
             Toast.makeText(context, "Botão de atualizar", Toast.LENGTH_LONG).show()
         } else if (id == R.id.action_config) {
             Toast.makeText(context, "Botão de configuracoes", Toast.LENGTH_LONG).show()
-        }
-
-        else if (id == android.R.id.home) {
+        } else if (id == android.R.id.home) {
+            val intent = Intent(context, CursoCadastroActivity::class.java)
+            startActivityForResult(intent, REQUEST_CADASTRO)
             finish()
         }
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == REQUEST_CADASTRO || requestCode == REQUEST_REMOVE) {
+            taskCursos()
+        }
 
 
+    }
 }

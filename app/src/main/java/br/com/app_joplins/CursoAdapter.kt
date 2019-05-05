@@ -8,27 +8,27 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CursorAdapter
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.adapter_curso.view.*
 
 class CursoAdapter(
     val curso: List<Curso>,
-    val onClick: (Curso) -> Unit
-
-
-): RecyclerView.Adapter<CursoAdapter.CursoViewHolder>() {
+    val onClick: (Curso) -> Unit): RecyclerView.Adapter<CursoAdapter.CursoViewHolder>() {
 
     class CursoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
 
         val cardNome: TextView
         val cardImage: ImageView
+        var cardProgress: ProgressBar
         var cardView: CardView
 
         init {
             cardNome = view.cardNome
             cardImage = view.cardImg
+            cardProgress = view.findViewById<ProgressBar>(R.id.cardProgress)
             cardView = view.card_curso
 
         }
