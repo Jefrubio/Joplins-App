@@ -40,7 +40,6 @@
                 android:alpha="0.7"
                 android:text="Cursos"
                 android:onClick="sendMessage"/>
-
         <Button
                 android:id="@+id/botaoFavoritos"
                 android:layout_width="match_parent"

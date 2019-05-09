@@ -120,7 +120,6 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         startActivityForResult(intent, REQUEST_REMOVE)
 
     }
-
     private fun configuraMenuLateral() {
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
         var menuLateral = findViewById<DrawerLayout>(R.id.layourMenuLateral)
@@ -169,6 +168,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         drawer.closeDrawer(GravityCompat.START)
         return true
     }
+
 
     fun cliqueSair() {
         val returnIntent = Intent();
