@@ -13,6 +13,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
 
@@ -44,7 +45,7 @@ class CursoActivity : DebugActivity() {
         texto.text = curso?.nome
         var imagem = findViewById<ImageView>(R.id.imagemCurso)
         Picasso.with(this).load(curso?.foto).fit().into(imagem,
-            object : com.squareup.picasso.Callback {
+            object : Callback {
                 override fun onSuccess() {}
 
                 override fun onError() {}

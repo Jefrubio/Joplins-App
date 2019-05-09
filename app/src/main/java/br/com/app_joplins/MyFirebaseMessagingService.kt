@@ -49,4 +49,5 @@ class MyFirebaseMessagingService: FirebaseMessagingService() {
         }
         NotificationUtil.create(this, 1, intent, titulo, mensagem)
     }
+
 }

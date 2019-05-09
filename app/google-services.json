@@ -1,0 +1,41 @@
+{
+  "project_info": {
+    "project_number": "64486132456",
+    "firebase_url": "https://joplins.firebaseio.com",
+    "project_id": "joplins",
+    "storage_bucket": "joplins.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64486132456:android:31e452cf1e3e3c22",
+        "android_client_info": {
+          "package_name": "br.com.app_joplins"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64486132456-f3d2mp9d9gcsftc7d85hvljgs7sbi8gl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADvHbiMkROZI-ai3uWYILSxJQwpoH6O1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64486132456-f3d2mp9d9gcsftc7d85hvljgs7sbi8gl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+
+}

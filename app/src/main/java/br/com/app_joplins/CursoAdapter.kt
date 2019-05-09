@@ -12,6 +12,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.adapter_curso.view.*
+import java.lang.Exception
 
 class CursoAdapter(
     val curso: List<Curso>,
@@ -26,38 +27,37 @@ class CursoAdapter(
         var cardView: CardView
 
         init {
-            cardNome = view.cardNome
-            cardImage = view.cardImg
+            cardNome = view.findViewById<TextView>(R.id.cardNome)
+            cardImage = view.findViewById<ImageView>(R.id.cardImg)
             cardProgress = view.findViewById<ProgressBar>(R.id.cardProgress)
-            cardView = view.card_curso
+            cardView = view.findViewById<CardView>(R.id.card_curso)
 
         }
     }
 
-    override fun getItemCount(): Int {
-        return this.curso.size
-    }
+    override fun getItemCount() = this.curso.size
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CursoViewHolder {
 
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.adapter_curso, parent, false)
-        val holder = CursoViewHolder(view)
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CursoAdapter.CursoViewHolder {
+
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.adapter_curso, parent, false)
+        val holder = CursoAdapter.CursoViewHolder(view)
         return holder
     }
 
-    override fun onBindViewHolder(holder: CursoViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: CursoAdapter.CursoViewHolder, position: Int) {
 
         val context = holder.itemView.context
-        val curso = this.curso[position]
-
-
-
+        val curso = curso [position]
 
         holder.cardNome.text = curso.nome
+        holder.cardProgress.visibility = View.VISIBLE
+
         Picasso.with(context).load(curso.foto).fit().into(holder.cardImage,
+
             object: com.squareup.picasso.Callback{
-                override fun onSuccess() {
+                    override fun onSuccess() {
                     holder.cardImage.visibility = View.GONE
                 }
 
@@ -68,7 +68,7 @@ class CursoAdapter(
             })
 
 
-        holder.itemView.setOnClickListener { onClick(curso) }
+        holder.itemView.setOnClickListener {onClick(curso) }
 
 
 
