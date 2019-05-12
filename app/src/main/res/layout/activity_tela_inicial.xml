@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/layourMenuLateral"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:fitsSystemWindows="true">
+
+
+
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/imagem_login"
+            android:orientation="vertical"
+            android:padding="35dp"
+            tools:context=".TelaInicialActivity">
+
+            <include layout="@layout/toolbar" />
+
+
+        <TextView
+                android:id="@+id/mensagemInicial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Joplins"
+                android:textAlignment="center"/>
+
+        <Button
+                android:id="@+id/botaoCursos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="200dp"
+                android:alpha="0.7"
+                android:text="Cursos"
+                android:onClick="sendMessage"/>
+
+        <Button
+                android:id="@+id/botaoFavoritos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:alpha="0.7"
+                android:text="Favoritos"/>
+
+        <Button
+                android:id="@+id/botaoForum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:alpha="0.7"
+                android:text="Forum"/>
+
+        <Button
+                android:id="@+id/botaoContato"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:alpha="0.7"
+                android:text="Contato"/>
+
+        <Button
+                android:id="@+id/botaoConfiguracoes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:alpha="0.7"
+                android:text="Configurações"/>
+
+        <Button
+                android:id="@+id/botaoSair"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40px"
+                android:alpha="0.7"
+                android:text="Sair"/>
+
+    </LinearLayout>
+
+        <!--Menu lateral-->
+<android.support.design.widget.NavigationView
+android:id="@+id/menu_lateral"
+android:layout_width="wrap_content"
+android:layout_height="match_parent"
+android:layout_gravity="start"
+android:fitsSystemWindows="true"
+app:headerLayout="@layout/menu_lateral_cabecalho"
+app:menu="@menu/menu_lateral">
+
+
+</android.support.design.widget.NavigationView>
+
+        </android.support.v4.widget.DrawerLayout>

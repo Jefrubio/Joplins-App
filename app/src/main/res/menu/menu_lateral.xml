@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_cursos"
+            android:icon="@drawable/ic_disciplina_black"
+            android:title="Cursos"
+            android:checked="true"/>
+        //cursos
+        <item
+            android:id="@+id/nav_forum"
+            android:icon="@drawable/ic_forum_black"
+            android:title="Fórum" />
+        <item
+            android:id="@+id/nav_contato"
+            android:icon="@drawable/ic_email_black_24dp"
+            android:title="Contato" />
+        //contato
+        <item
+            android:id="@+id/nav_favorito"
+            android:icon="@drawable/ic_favorite_black_24dp"
+            android:title="Favoritos" />
+        //favoritos
+
+        <item
+            android:id="@+id/nav_config"
+            android:icon="@drawable/ic_configuracoes_black"
+            android:title="Configurações" />
+    </group>
+</menu>
