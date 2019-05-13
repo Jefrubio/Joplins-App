@@ -34,17 +34,17 @@ object CursoService {
 
     }
 
-    fun getCurso (context: Context, id: Long): Curso? {
-
+    fun getCurso (context: Context, id: Long): List<Curso> {
+        var curso = ArrayList<Curso>()
         if (AndroidUtils.isInternetDisponivel(context)) {
             val url = "$host/cursos/${id}"
             val json = HttpHelper.get(url)
-            val curso = parserJson<Curso>(json)
+            curso = parserJson(json)
 
             return curso
         } else {
             val dao = DatabaseManager.getCursoDAO()
-            val curso = dao.getById(id)
+            val curso = dao.findAll()
             return curso
         }
 

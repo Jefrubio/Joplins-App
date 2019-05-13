@@ -6,9 +6,10 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import java.io.Serializable
 
+
 @Entity(tableName = "curso")
 class Curso: Serializable {
-
+    @PrimaryKey
     var id:Long = 0
     var nome = ""
     var foto = ""

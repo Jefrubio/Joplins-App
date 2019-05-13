@@ -78,7 +78,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
     }
 
     fun taskCursos(){
-        curso = CursoService.getCurso(context)
+        curso = CursoService.getCurso(context,)
         recyclerCurso?.adapter = CursoAdapter(curso)
         {onClickCursos(it)}
 
