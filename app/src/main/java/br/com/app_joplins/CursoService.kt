@@ -15,7 +15,7 @@ object CursoService {
     val host = "http://urldoseuservico.com.br"
     val TAG = "WS_LMSApp"
 
-    fun getDisciplinas (context: Context): List<Curso> {
+    fun getCursos (context: Context): List<Curso> {
         var cursos = ArrayList<Curso>()
         if (AndroidUtils.isInternetDisponivel(context)) {
             val url = "$host/cursos"

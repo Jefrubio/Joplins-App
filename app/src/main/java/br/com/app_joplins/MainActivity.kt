@@ -116,7 +116,7 @@ class MainActivity : DebugActivity() {
                 val curso = CursoService.getCurso(this, cursoId)
                 runOnUiThread {
                     val intentCurso = Intent(this, CursoActivity::class.java)
-                    intentCurso.putExtra("curso", curso)
+                    intentCurso.putExtra("curso", curso[0])
                     startActivity(intentCurso)
                 }
             }.start()

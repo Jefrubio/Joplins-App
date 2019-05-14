@@ -2,6 +2,7 @@ package br.com.app_joplins
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
+import android.support.v7.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import java.io.Serializable
@@ -9,6 +10,7 @@ import java.io.Serializable
 
 @Entity(tableName = "curso")
 class Curso: Serializable {
+
     @PrimaryKey
     var id:Long = 0
     var nome = ""

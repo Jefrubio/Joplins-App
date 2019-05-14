@@ -55,8 +55,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         setSupportActionBar(toolbar)
 
 
-
-        supportActionBar?.title = "Disciplinas"
+        supportActionBar?.title = "Cursos"
 
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -78,13 +77,29 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
     }
 
     fun taskCursos(){
-        curso = CursoService.getCurso(context,)
-        
-        recyclerCurso?.adapter = CursoAdapter(curso)
-        {onClickCursos(it)}
+        Thread {
+            // Código para procurar as disciplinas
+            // que será executado em segundo plano / Thread separada
+            this.curso = CursoService.getCursos(context)
+            runOnUiThread {
+                // Código para atualizar a UI com a lista de disciplinas
+                recyclerCurso?.adapter = CursoAdapter(this.curso) { onClickCursos(it) }
+                // enviar notificação
+                enviaNotificacao(this.curso.get(0))
+
+            }
+        }.start()
 
     }
 
+    fun enviaNotificacao(disciplina: Curso) {
+        // Intent para abrir tela quando clicar na notificação
+        val intent = Intent(this, CursoActivity::class.java)
+        // parâmetros extras
+        intent.putExtra("disciplina", disciplina)
+        // Disparar notificação
+        NotificationUtil.create(this, 1, intent, "LMSApp", "Você tem nova atividade na ${disciplina.nome}")
+    }
     fun onClickCursos(curso: Curso){
         Toast.makeText(context, "${curso.nome}",
             Toast.LENGTH_SHORT).show()

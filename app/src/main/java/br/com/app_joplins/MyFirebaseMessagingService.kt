@@ -45,7 +45,7 @@ class MyFirebaseMessagingService: FirebaseMessagingService() {
             mensagem += ""
             // recuperar disciplina no WS
             val curso = CursoService.getCurso(this, cursoId)
-            intent.putExtra("curso", curso)
+            intent.putExtra("curso", curso[0])
         }
         NotificationUtil.create(this, 1, intent, titulo, mensagem)
     }
