@@ -231,8 +231,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/br/com/app_joplins/TelaInicialActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="190" lean-forward="true" selection-end-line="190" />
+            <state relative-caret-position="153">
+              <caret line="69" column="45" lean-forward="true" selection-start-line="66" selection-start-column="8" selection-end-line="69" selection-end-column="45" />
               <folding>
                 <element signature="e#28#766#0" expanded="true" />
               </folding>
@@ -329,7 +329,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
