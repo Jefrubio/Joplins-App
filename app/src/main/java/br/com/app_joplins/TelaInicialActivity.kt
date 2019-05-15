@@ -63,34 +63,9 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
         configuraMenuLateral()
 
-        recyclerCurso = recyclerCurso
-        recyclerCurso?.layoutManager = LinearLayoutManager (context)
-        recyclerCurso?.itemAnimator = DefaultItemAnimator()
-        recyclerCurso?.setHasFixedSize (true)
-
 
     }
 
-    override fun onResume() {
-        super.onResume()
-        taskCursos()
-    }
-
-    fun taskCursos(){
-        Thread {
-            // Código para procurar as disciplinas
-            // que será executado em segundo plano / Thread separada
-            this.curso = CursoService.getCursos(context)
-            runOnUiThread {
-                // Código para atualizar a UI com a lista de disciplinas
-                recyclerCurso?.adapter = CursoAdapter(this.curso) { onClickCursos(it) }
-                // enviar notificação
-                enviaNotificacao(this.curso.get(0))
-
-            }
-        }.start()
-
-    }
 
     fun enviaNotificacao(disciplina: Curso) {
         // Intent para abrir tela quando clicar na notificação
