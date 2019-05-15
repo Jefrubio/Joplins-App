@@ -1,12 +1,8 @@
 package br.com.app_joplins
 import android.content.Context
-import android.provider.CalendarContract
-import android.util.Log
-import android.widget.Toast
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import org.json.JSONArray
-import java.net.URL
+import java.util.AbstractList
 
 object CursoService {
 
@@ -16,7 +12,7 @@ object CursoService {
     val TAG = "WS_LMSApp"
 
     fun getCursos (context: Context): List<Curso> {
-        var cursos = ArrayList<Curso>()
+        var cursos: AbstractList<Curso>
         if (AndroidUtils.isInternetDisponivel(context)) {
             val url = "$host/cursos"
             val json = HttpHelper.get(url)
@@ -35,7 +31,7 @@ object CursoService {
     }
 
     fun getCurso (context: Context, id: Long): List<Curso> {
-        var curso = ArrayList<Curso>()
+        var curso: AbstractList<Curso>
         if (AndroidUtils.isInternetDisponivel(context)) {
             val url = "$host/cursos/${id}"
             val json = HttpHelper.get(url)
@@ -44,8 +40,7 @@ object CursoService {
             return curso
         } else {
             val dao = DatabaseManager.getCursoDAO()
-            val curso = dao.findAll()
-            return curso
+            return dao.findAll()
         }
 
     }
