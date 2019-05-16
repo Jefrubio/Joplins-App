@@ -76,12 +76,12 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         // parâmetros extras
         intent.putExtra("curso", curso)
         // Disparar notificação
-        NotificationUtil.create(this, 1, intent, "LMSApp", "Você tem nova atividade na ${curso.nome}")
+        NotificationUtil.create(this, 1, intent, "Joplins", "Você tem nova atividade na ${curso.nome}")
     }
-    fun onClickCursos(curso: Curso){
-        Toast.makeText(context, "${curso.nome}",
-            Toast.LENGTH_SHORT).show()
-    }
+    //fun onClickCursos(curso: Curso){
+        //Toast.makeText(context, "${curso.nome}",
+            //Toast.LENGTH_SHORT).show()
+    //}
 
     private fun configuraMenuLateral() {
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
@@ -135,6 +135,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
     fun cliquecursos(){
         val returnIntent = Intent();
+        returnIntent.putExtra("result", "Cursos")
         val it = Intent(this,CursoActivity::class.java);
         startActivity(it);
     }
