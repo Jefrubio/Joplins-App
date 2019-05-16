@@ -1,34 +1,34 @@
 {
   "project_info": {
-    "project_number": "684012202296",
-    "firebase_url": "https://joplins-app.firebaseio.com",
-    "project_id": "joplins-app",
-    "storage_bucket": "joplins-app.appspot.com"
+    "project_number": "495313901951",
+    "firebase_url": "https://joplins-74057.firebaseio.com",
+    "project_id": "joplins-74057",
+    "storage_bucket": "joplins-74057.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:684012202296:android:31e452cf1e3e3c22",
+        "mobilesdk_app_id": "1:495313901951:android:31e452cf1e3e3c22",
         "android_client_info": {
           "package_name": "br.com.app_joplins"
         }
       },
       "oauth_client": [
         {
-          "client_id": "684012202296-t81k3dsvul3uri29ctcq85gos0sgq3fd.apps.googleusercontent.com",
+          "client_id": "495313901951-ma0p117dv85atcehdu695fo0h690j8ei.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC-g18IjQ8QHe0tj12jDPbMpkkIfSuFlsI"
+          "current_key": "AIzaSyCXMvRXdw1iWfS1cDPclQoia8uRI4wRwGo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "684012202296-t81k3dsvul3uri29ctcq85gos0sgq3fd.apps.googleusercontent.com",
+              "client_id": "495313901951-ma0p117dv85atcehdu695fo0h690j8ei.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

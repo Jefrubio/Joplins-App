@@ -19,12 +19,15 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_tela_curso.*
 import kotlinx.android.synthetic.main.activity_tela_inicial.*
 import kotlinx.android.synthetic.main.toolbar.*
+import org.intellij.lang.annotations.JdkConstants
+
+
 
 class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private val context: Context get() = this
     private var curso = listOf<Curso>()
-    var recyclerCurso: RecyclerView? = null
+    //var recyclerCurso: RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,9 +50,9 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         val botaoSair = findViewById<Button>(R.id.botaoSair)
         botaoSair.setOnClickListener {cliqueSair()}
 
-        val botaoCursos = findViewById<Button>(R.id.botaoCursos)
-        botaoCursos.setOnClickListener {cliquecursos()}
-
+        val botaoCursos = findViewById(R.id.botaoCursos) as Button
+        botaoCursos.setOnClickListener {cliquecursos()
+       }
 
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -67,13 +70,13 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
     }
 
 
-    fun enviaNotificacao(disciplina: Curso) {
+    fun enviaNotificacao(curso: Curso) {
         // Intent para abrir tela quando clicar na notificação
         val intent = Intent(this, CursoActivity::class.java)
         // parâmetros extras
-        intent.putExtra("disciplina", disciplina)
+        intent.putExtra("curso", curso)
         // Disparar notificação
-        NotificationUtil.create(this, 1, intent, "LMSApp", "Você tem nova atividade na ${disciplina.nome}")
+        NotificationUtil.create(this, 1, intent, "LMSApp", "Você tem nova atividade na ${curso.nome}")
     }
     fun onClickCursos(curso: Curso){
         Toast.makeText(context, "${curso.nome}",
@@ -132,7 +135,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
     fun cliquecursos(){
         val returnIntent = Intent();
-        val it = Intent(this,Curso::class.java);
+        val it = Intent(this,CursoActivity::class.java);
         startActivity(it);
     }
 
@@ -156,6 +159,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         return true
     }
 
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
         val id = item?.itemId
@@ -175,6 +179,5 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         return super.onOptionsItemSelected(item)
     }
 
-
-
 }
+

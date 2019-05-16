@@ -14,20 +14,20 @@ class CursoCadastroActivity : AppCompatActivity() {
         setTitle("Novo Curso")
 
         salvarCurso.setOnClickListener {
-            val disciplina = Curso()
-            disciplina.nome = nomeCurso.text.toString()
-            disciplina.ementa = ementaCurso.text.toString()
-            disciplina.professor = professorCurso.text.toString()
-            disciplina.foto = urlFoto.text.toString()
+            val curso = Curso()
+            curso.nome = nomeCurso.text.toString()
+            curso.ementa = ementaCurso.text.toString()
+            curso.professor = professorCurso.text.toString()
+            curso.foto = urlFoto.text.toString()
 
-            taskAtualizar(disciplina)
+            taskAtualizar(curso)
         }
     }
 
-    private fun taskAtualizar(disciplina: Curso) {
+    private fun taskAtualizar(curso: Curso) {
         // Thread para salvar a discilpina
         Thread {
-            CursoService.save(disciplina)
+            CursoService.save(curso)
             runOnUiThread {
                 // após cadastrar, voltar para activity anterior
                 finish()

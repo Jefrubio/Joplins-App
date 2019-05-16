@@ -25,7 +25,8 @@ class CursoActivity : DebugActivity() {
     var curso: Curso? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cursos)
+        setContentView(R.layout.activity_tela_curso)
+
 
         // recuperar onjeto de Disciplina da Intent
         if (intent.getSerializableExtra("curso") is Curso)
