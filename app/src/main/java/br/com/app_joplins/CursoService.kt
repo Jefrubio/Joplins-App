@@ -8,7 +8,7 @@ object CursoService {
 
     //TROQUE PELA URL DE ONDE ESTÁ O WS
     // Veja um exemplo no repositório https://github.com/fesousa/aula-android-kotlin-api
-    val host = "http://urldoseuservico.com.br"
+    val host = "http://.com.br"
     val TAG = "WS_LMSApp"
 
     fun getCursos (context: Context): List<Curso> {

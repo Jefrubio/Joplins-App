@@ -54,6 +54,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         botaoCursos.setOnClickListener {cliquecursos()
        }
 
+
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -66,22 +67,29 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
 
         configuraMenuLateral()
 
-
     }
 
-
-    fun enviaNotificacao(curso: Curso) {
-        // Intent para abrir tela quando clicar na notificação
-        val intent = Intent(this, CursoActivity::class.java)
-        // parâmetros extras
-        intent.putExtra("curso", curso)
-        // Disparar notificação
-        NotificationUtil.create(this, 1, intent, "Joplins", "Você tem nova atividade na ${curso.nome}")
+    fun cliquecursos(){
+        val returnIntent = Intent();
+        returnIntent.putExtra("result", "Cursos")
+        val it = Intent(this,CursoActivity::class.java);
+        startActivity(it);
     }
-    //fun onClickCursos(curso: Curso){
-        //Toast.makeText(context, "${curso.nome}",
-            //Toast.LENGTH_SHORT).show()
-    //}
+//    fun enviaNotificacao(curso: Curso) {
+//        // Intent para abrir tela quando clicar na notificação
+//        val intent = Intent(this, CursoActivity::class.java)
+//        // parâmetros extras
+//        intent.putExtra("curso", curso)
+//        // Disparar notificação
+//        NotificationUtil.create(this, 1, intent, "Joplins", "Você tem nova atividade na ${curso.nome}")
+//    }
+//    fun onClickCursos(curso: Curso){
+////        val intent = Intent(this, CursoActivity::class.java)
+////        //intent.putExtra("curso", curso)
+////        //Toast.makeText(context, "${curso.nome}",
+////        //Toast.LENGTH_SHORT).show()
+////        startActivity(intent)
+   // }
 
     private fun configuraMenuLateral() {
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
@@ -133,12 +141,7 @@ class TelaInicialActivity : DebugActivity(), NavigationView.OnNavigationItemSele
         finish();
     }
 
-    fun cliquecursos(){
-        val returnIntent = Intent();
-        returnIntent.putExtra("result", "Cursos")
-        val it = Intent(this,CursoActivity::class.java);
-        startActivity(it);
-    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 

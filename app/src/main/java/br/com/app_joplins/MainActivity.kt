@@ -30,6 +30,7 @@ class MainActivity : DebugActivity() {
         texto.text = getString(R.string.mensagem_login)
 
 
+
         val botaoLogin = findViewById<Button>(R.id.botao_login)
 
         // evento no botao de login forma 1
@@ -42,15 +43,15 @@ class MainActivity : DebugActivity() {
 //        }
 
         // segunda forma: delegar para método
-        botaoLogin.setOnClickListener {onClickLogin() }
+        botaoLogin.setOnClickListener { onClickLogin() }
 
         progressBar.visibility = View.INVISIBLE
 
         // procurar pelas preferências, se pediu para guardar usuário e senha
         var lembrar = Prefs.getBoolean("lembrar")
         if (lembrar) {
-            var lembrarNome  = Prefs.getString("lembrarNome")
-            var lembrarSenha  = Prefs.getString("lembrarSenha")
+            var lembrarNome = Prefs.getString("lembrarNome")
+            var lembrarSenha = Prefs.getString("lembrarSenha")
             campo_usuario.setText(lembrarNome)
             campo_senha.setText(lembrarSenha)
             checkBoxLogin.isChecked = lembrar
@@ -58,7 +59,7 @@ class MainActivity : DebugActivity() {
         }
     }
 
-    fun onClickLogin(){
+    fun onClickLogin() {
 
         val valorUsuario = campo_usuario.text.toString()
         val valorSenha = campo_senha.text.toString()
@@ -69,7 +70,7 @@ class MainActivity : DebugActivity() {
         if (checkBoxLogin.isChecked) {
             Prefs.setString("lembrarNome", valorUsuario)
             Prefs.setString("lembrarSenha", valorSenha)
-        }else{
+        } else {
             Prefs.setString("lembrarNome", "")
             Prefs.setString("lembrarSenha", "")
         }
@@ -123,4 +124,5 @@ class MainActivity : DebugActivity() {
         }
 
     }
+
 }
