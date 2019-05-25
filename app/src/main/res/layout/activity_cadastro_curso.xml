@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="URL Foto"
+        android:hint="https://cdn.pixabay.com/photo/2018/01/18/20/42/pencil-3091204_1280.jpg"
         android:inputType="textPersonName"/>
 
     <Button

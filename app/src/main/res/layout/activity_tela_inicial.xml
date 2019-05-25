@@ -35,18 +35,18 @@
                 android:id="@+id/botaoCursos"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="200dp"
+                android:layout_marginTop="150dp"
                 android:alpha="0.7"
                 android:text="Cursos"
                 android:onClick="sendMessage"/>
 
-        <Button
-                android:id="@+id/botaoFavoritos"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40px"
-                android:alpha="0.7"
-                android:text="Favoritos"/>
+        <!--<Button-->
+                <!--android:id="@+id/botaoFavoritos"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="40px"-->
+                <!--android:alpha="0.7"-->
+                <!--android:text="Favoritos"/>-->
 
         <Button
                 android:id="@+id/botaoForum"

@@ -21,20 +21,20 @@ import android.widget.Toast
 class CursoActivity : DebugActivity() {
 
     private val context: Context get() = this
-    private var cursos = listOf<Curso>()
+    //private var cursos = listOf<Curso>()
     //var curso: Curso? = null
-    var recyclerCurso: RecyclerView? = null
-    private var REQUEST_CADASTRO = 1
-    private var REQUEST_REMOVE= 2
+//    var recyclerCurso: RecyclerView? = null
+//    private var REQUEST_CADASTRO = 1
+//    private var REQUEST_REMOVE= 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_curso)
 
-        recyclerCurso = findViewById<RecyclerView>(R.id.recyclerCurso)
-        recyclerCurso?.layoutManager = LinearLayoutManager(context)
-        recyclerCurso?.itemAnimator = DefaultItemAnimator()
-        recyclerCurso?.setHasFixedSize(true)
+//        recyclerCurso = findViewById<RecyclerView>(R.id.recyclerCurso)
+//        recyclerCurso?.layoutManager = LinearLayoutManager(context)
+//        recyclerCurso?.itemAnimator = DefaultItemAnimator()
+//        recyclerCurso?.setHasFixedSize(true)
 
         // recuperar onjeto de Disciplina da Intent
 //        if (intent.getSerializableExtra("curso") is Curso)
@@ -73,15 +73,15 @@ class CursoActivity : DebugActivity() {
         Thread {
             // Código para procurar as disciplinas
             // que será executado em segundo plano / Thread separada
-            this.cursos = CursoService.getCursos(context)
-            runOnUiThread {
-                // Código para atualizar a UI com a lista de disciplinas
-                recyclerCurso?.adapter = CursoAdapter(this.cursos) { onClickCursos(it) }
-                // enviar notificação
-                enviaNotificacao(this.cursos.get(0))
+//            this.cursos = CursoService.getCursos(context)
+//            runOnUiThread {
+//                // Código para atualizar a UI com a lista de disciplinas
+////                recyclerCurso?.adapter = CursoAdapter(this.cursos) { onClickCursos(it) }
+//                // enviar notificação
+//                enviaNotificacao(this.cursos.get(0))
 
             }
-        }.start()
+//        }.start()
 
     }
     fun enviaNotificacao(curso: Curso) {

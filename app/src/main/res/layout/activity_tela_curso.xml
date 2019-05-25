@@ -17,26 +17,33 @@
                   tools:context=".CursoActivity">
 
         <include layout="@layout/toolbar"/>
-        <!--<TextView android:layout_width="match_parent"-->
-                  <!--android:layout_height="100dp"-->
-                  <!--android:text="TESTESSSSSS"/>-->
-        <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <!--<ScrollView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="328dp">-->
 
-            <android.support.v7.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/recyclerCurso"
-                    android:cacheColorHint="@android:color/transparent"
-                    android:clipToPadding="false"
-                    android:divider="@null"
-                    android:dividerHeight="0dp"
-                    android:listSelector="@android:color/transparent"
-                    android:scrollbarStyle="outsideOverlay"
-                    android:scrollbars="vertical"/>
 
-        </ScrollView>
+        <ImageView android:layout_width="match_parent"
+                   android:layout_height="301dp"
+                   android:src="@drawable/ic_curso"/>
+
+
+        <ImageView android:layout_width="match_parent"
+                   android:layout_height="304dp"
+                   android:src="@drawable/ic_java"/>
+
+            <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/recyclerCurso"-->
+            <!--android:cacheColorHint="@android:color/transparent"-->
+            <!--android:clipToPadding="false"-->
+            <!--android:divider="@null"-->
+            <!--android:dividerHeight="0dp"-->
+            <!--android:listSelector="@android:color/transparent"-->
+            <!--android:scrollbarStyle="outsideOverlay"-->
+            <!--android:scrollbars="vertical"/>-->
+
+
     </LinearLayout>
 
 
